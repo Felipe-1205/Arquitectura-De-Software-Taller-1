@@ -1,0 +1,105 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      RABBITMQ_DEFAULT_VHOST: /cafeteria
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - cafeteria-net
+
+  h2-pedidos:
+    image: oscarfonts/h2:2.2.224
+    container_name: h2-pedidos
+    ports:
+      - "9091:81"
+    environment:
+      - H2_OPTIONS=-ifNotExists
+    volumes:
+      - h2-pedidos-data:/opt/h2-data
+    networks:
+      - cafeteria-net
+
+  h2-facturacion:
+    image: oscarfonts/h2:2.2.224
+    container_name: h2-facturacion
+    ports:
+      - "9092:81"
+    environment:
+      - H2_OPTIONS=-ifNotExists
+    volumes:
+      - h2-facturacion-data:/opt/h2-data
+    networks:
+      - cafeteria-net
+
+  backend-pedidos:
+    build: ./backend-pedidos
+    container_name: backend-pedidos
+    depends_on:
+      - rabbitmq
+      - h2-pedidos
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=user
+      - SPRING_RABBITMQ_PASSWORD=password
+      - SPRING_RABBITMQ_VIRTUAL_HOST=/cafeteria
+      - DB_URL=jdbc:h2:tcp://h2-pedidos:81/~/pedidosdb
+      - DB_USERNAME=sa
+      - DB_PASSWORD=
+    networks:
+      - cafeteria-net
+
+  backend-facturacion:
+    build: ./backend-facturacion
+    container_name: backend-facturacion
+    depends_on:
+      - rabbitmq
+      - h2-facturacion
+    ports:
+      - "8082:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=user
+      - SPRING_RABBITMQ_PASSWORD=password
+      - SPRING_RABBITMQ_VIRTUAL_HOST=/cafeteria
+      - DB_URL=jdbc:h2:tcp://h2-facturacion:81/~/facturaciondb
+      - DB_USERNAME=sa
+      - DB_PASSWORD=
+    networks:
+      - cafeteria-net
+
+  frontend-blazor:
+    build: ./frontend-blazor
+    container_name: frontend-blazor
+    depends_on:
+      - backend-pedidos
+      - backend-facturacion
+    ports:
+      - "5000:80"  # Cambiado a 80 para coincidir con Nginx
+    environment:
+      - API_PEDIDOS_URL=http://backend-pedidos:8080
+      - API_FACTURACION_URL=http://backend-facturacion:8080
+    networks:
+      - cafeteria-net
+
+volumes:
+  rabbitmq-data:
+  h2-pedidos-data:
+  h2-facturacion-data:
+
+networks:
+  cafeteria-net:
+    driver: bridge
