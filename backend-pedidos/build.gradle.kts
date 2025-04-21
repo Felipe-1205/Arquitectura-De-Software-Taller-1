@@ -1,22 +1,46 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
-    application
+	kotlin("jvm") version "1.9.25"
+	kotlin("plugin.spring") version "1.9.25"
+	id("org.springframework.boot") version "3.3.10"
+	id("io.spring.dependency-management") version "1.1.7"
+	kotlin("plugin.jpa") version "1.9.25"
+}
+
+group = "javeriana.co"
+version = "0.0.1-SNAPSHOT"
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
 }
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    implementation("org.springframework:spring-context:5.3.33")
-    implementation("org.springframework:spring-jms:5.3.33")
-    implementation("com.h2database:h2:2.2.224")
-    implementation("org.springframework:spring-web:5.3.33")
-    implementation("org.springframework:spring-messaging:5.3.33")
-    implementation("org.springframework.amqp:spring-rabbit:2.4.11")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-application {
-    mainClass.set("com.example.presentation.MainKt")
+kotlin {
+	compilerOptions {
+		freeCompilerArgs.addAll("-Xjsr305=strict")
+	}
+}
+
+allOpen {
+	annotation("jakarta.persistence.Entity")
+	annotation("jakarta.persistence.MappedSuperclass")
+	annotation("jakarta.persistence.Embeddable")
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
 }
