@@ -1,8 +1,10 @@
-package javeriana.co.backend.presentacion.websocket
+package javeriana.co.backend.dominio.servicio
 
 import org.springframework.stereotype.Service
 import org.springframework.web.socket.TextMessage
 import org.springframework.web.socket.WebSocketSession
+import org.springframework.web.socket.handler.TextWebSocketHandler
+import org.springframework.web.socket.CloseStatus
 import java.util.concurrent.CopyOnWriteArraySet
 
 @Service

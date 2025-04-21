@@ -3,10 +3,13 @@ package javeriana.co.backend.presentacion.websocket
 import org.springframework.stereotype.Component
 import org.springframework.web.socket.CloseStatus
 import org.springframework.web.socket.WebSocketSession
+import org.springframework.web.socket.TextMessage
 import org.springframework.web.socket.handler.TextWebSocketHandler
 
+import javeriana.co.backend.dominio.servicio.WebSocketMessagingService
+
 @Component
-class ChatWebSocketHandler(
+class MyWebSocketHandler(
     private val messagingService: WebSocketMessagingService
 ) : TextWebSocketHandler() {
 

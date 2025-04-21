@@ -5,6 +5,8 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
+import javeriana.co.backend.presentacion.websocket.MyWebSocketHandler
+
 @Configuration
 @EnableWebSocket
 class WebSocketConfig(private val myHandler: MyWebSocketHandler) : WebSocketConfigurer {

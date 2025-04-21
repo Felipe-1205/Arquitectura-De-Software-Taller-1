@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: servicio-facturacion
+
+  # Configuración de RabbitMQ
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST}
+    port: ${SPRING_RABBITMQ_PORT}
+    username: ${SPRING_RABBITMQ_USERNAME}
+    password: ${SPRING_RABBITMQ_PASSWORD}
+    virtual-host: ${SPRING_RABBITMQ_VIRTUAL_HOST}
+
+  # Configuración de H2 para Facturación
+  datasource:
+    url: ${DB_FACTURACION_URL}
+    username: ${DB_FACTURACION_USERNAME}
+    password: ${DB_FACTURACION_PASSWORD}
+    driver-class-name: org.h2.Driver
+    dialect: org.hibernate.dialect.H2Dialect
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

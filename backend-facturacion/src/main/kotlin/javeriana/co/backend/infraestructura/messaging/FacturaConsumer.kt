@@ -1,9 +1,11 @@
 package javeriana.co.backend.infraestructura.messaging
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.tuapp.model.Factura
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.stereotype.Service
+
+import javeriana.co.backend.dominio.modelo.Factura
+import javeriana.co.backend.dominio.servicio.WebSocketMessagingService
 
 @Service
 class FacturaConsumer(
