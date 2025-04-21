@@ -1,0 +1,33 @@
+@page "/pedidos"
+@inject PedidoService PedidoService
+<main>
+    <header>
+        <h3 id="title">NUEVO PEDIDO</h3>
+    </header>
+    <section>
+        <form>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo:</label>
+                <input type="text" @bind-value="nuevoPedido.Tipo" id="tipo" placeholder="Tipo de Cafe" required>
+            </div>
+            <div class="mb-3">
+                <label for="producto">Cantidad:</label>
+                <input type="number" @bind-value="nuevoPedido.Cantidad" id="cantidad" placeholder="Cantidad" required>
+            </div>
+            <div id="divBtn">
+                <button type="submit" class="btn btn-primary">Crear Pedido</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+
+@code {
+    private Pedido nuevoPedido = new();
+
+    private async Task CrearPedido()
+    {
+        await PedidoService.CrearPedido(nuevoPedido);
+        nuevoPedido = new();
+    }
+}

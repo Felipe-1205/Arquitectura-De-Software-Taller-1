@@ -52,29 +52,25 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcTG9hZGluZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/features/Facturacion/Pages/ListaFacturas.razor]
-build_metadata.AdditionalFiles.TargetPath = ZmVhdHVyZXNcRmFjdHVyYWNpb25cUGFnZXNcTGlzdGFGYWN0dXJhcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/features/Pedidos/Pages/ListaPedidos.razor]
 build_metadata.AdditionalFiles.TargetPath = ZmVhdHVyZXNcUGVkaWRvc1xQYWdlc1xMaXN0YVBlZGlkb3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/features/Pedidos/Pages/NuevoPedido.razor]
-build_metadata.AdditionalFiles.TargetPath = ZmVhdHVyZXNcUGVkaWRvc1xQYWdlc1xOdWV2b1BlZGlkby5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/Pages/Facturacion/ListaFacturas.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFjdHVyYWNpb25cTGlzdGFGYWN0dXJhcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/Pages/Inicio.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5pY2lvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/features/Facturacion/Pages/ListaFacturas.razor]
+build_metadata.AdditionalFiles.TargetPath = ZmVhdHVyZXNcRmFjdHVyYWNpb25cUGFnZXNcTGlzdGFGYWN0dXJhcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-6cwh59jkfe
+
+[C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/features/Pedidos/Pages/NuevoPedido.razor]
+build_metadata.AdditionalFiles.TargetPath = ZmVhdHVyZXNcUGVkaWRvc1xQYWdlc1xOdWV2b1BlZGlkby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-tvgmgoo65l
 
 [C:/Users/juane/OneDrive/Documentos/Trabajos Universidad/Arquitectura De Software/Talleres/Taller_2/Arquitectura-De-Software-Taller-1/frontend-blazor/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
