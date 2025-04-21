@@ -1,6 +1,6 @@
 package com.javeriana.co.backend.pedidos.infrastructure.persistence
 
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "pedidos")

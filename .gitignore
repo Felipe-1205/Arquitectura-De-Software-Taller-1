@@ -1,0 +1,24 @@
+# Compilación
+frontend-blazor/bin/
+obj/
+Debug/
+Release/
+
+# Archivos temporales
+*.user
+*.suo
+*.log
+*.vs/
+.vscode/
+.idea/
+
+# Archivos de NuGet
+*.nupkg
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# Otros
+.env
+*.db

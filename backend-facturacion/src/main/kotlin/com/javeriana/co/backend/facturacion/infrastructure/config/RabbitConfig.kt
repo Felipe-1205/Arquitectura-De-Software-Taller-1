@@ -23,7 +23,7 @@ class RabbitConfig(
     fun connectionFactory(): ConnectionFactory {
         val factory = CachingConnectionFactory(host, port)
         factory.username = username
-        factory.setPassword(password)
+        factory.password = password
         factory.virtualHost = virtualHost
         return factory
     }

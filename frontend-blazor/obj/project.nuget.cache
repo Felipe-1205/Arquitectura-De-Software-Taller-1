@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5sNGyidVS+8=",
+  "dgSpecHash": "bcClQEVJMXc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\juane\\OneDrive\\Documentos\\Trabajos Universidad\\Arquitectura De Software\\Talleres\\Taller_2\\Arquitectura-De-Software-Taller-1\\frontend-blazor\\frontend-blazor.csproj",
+  "projectFilePath": "C:\\Users\\juane\\OneDrive\\Documentos\\Trabajos Universidad\\Arquitectura De Software\\Talleres\\Arquitectura-De-Software-Taller-1\\frontend-blazor\\frontend-blazor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juane\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.3\\microsoft.aspnetcore.authorization.9.0.3.nupkg.sha512",
     "C:\\Users\\juane\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.3\\microsoft.aspnetcore.components.9.0.3.nupkg.sha512",
