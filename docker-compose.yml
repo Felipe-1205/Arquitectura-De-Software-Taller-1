@@ -19,9 +19,10 @@ services:
     image: oscarfonts/h2:2.2.224
     container_name: h2-pedidos
     ports:
-      - "9091:81"
+      - "9091:81"     # Web console
+      - "1521:1521"   # JDBC TCP port
     environment:
-      - H2_OPTIONS=-ifNotExists
+      - H2_OPTIONS=-tcp -tcpAllowOthers -webAllowOthers -webAdminPassword=admin123
     volumes:
       - h2-pedidos-data:/opt/h2-data
     networks:
@@ -31,9 +32,10 @@ services:
     image: oscarfonts/h2:2.2.224
     container_name: h2-facturacion
     ports:
-      - "9092:81"
+      - "9092:81"     # Web console
+      - "1522:1521"   # JDBC TCP port (evita conflicto con h2-pedidos)
     environment:
-      - H2_OPTIONS=-ifNotExists
+      - H2_OPTIONS=-tcp -tcpAllowOthers -webAllowOthers -webAdminPassword=admin123
     volumes:
       - h2-facturacion-data:/opt/h2-data
     networks:
@@ -54,7 +56,7 @@ services:
       - SPRING_RABBITMQ_USERNAME=user
       - SPRING_RABBITMQ_PASSWORD=password
       - SPRING_RABBITMQ_VIRTUAL_HOST=/cafeteria
-      - DB_URL=jdbc:h2:tcp://h2-pedidos:81/~/pedidosdb
+      - DB_URL=jdbc:h2:tcp://h2-pedidos:1521/~/pedidosdb
       - DB_USERNAME=sa
       - DB_PASSWORD=
     networks:
@@ -75,7 +77,7 @@ services:
       - SPRING_RABBITMQ_USERNAME=user
       - SPRING_RABBITMQ_PASSWORD=password
       - SPRING_RABBITMQ_VIRTUAL_HOST=/cafeteria
-      - DB_URL=jdbc:h2:tcp://h2-facturacion:81/~/facturaciondb
+      - DB_URL=jdbc:h2:tcp://h2-facturacion:1521/~/facturaciondb
       - DB_USERNAME=sa
       - DB_PASSWORD=
     networks:
